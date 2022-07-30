@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NoteForm />
+  <NoteList />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NoteForm from "./components/NoteForm.vue";
+import NoteList from "./components/NoteList.vue";
+import { notes } from "./state/store";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    NoteForm,
+    NoteList,
+  },
+  Data() {
+    return notes.items;
+  },
+};
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: #112121;
+  height: 100vh;
 }
 </style>
