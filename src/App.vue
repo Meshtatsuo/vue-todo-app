@@ -6,16 +6,12 @@
 <script>
 import NoteForm from "./components/NoteForm.vue";
 import NoteList from "./components/NoteList.vue";
-import { notes } from "./state/store";
 
 export default {
   name: "App",
   components: {
     NoteForm,
     NoteList,
-  },
-  Data() {
-    return notes.items;
   },
 };
 </script>

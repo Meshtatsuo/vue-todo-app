@@ -1,27 +1,25 @@
 <template>
   <div id="list">
-    <div v-if="list">
-      <ul v-for="note in list" :key="note">
-        <li>{{ note }}</li>
+    <div :v-if="data">
+      <ul :v-for="note in data" :key="note">
+        <NoteItem :note="note" />
       </ul>
     </div>
-    <div v-else>No notes</div>
   </div>
 </template>
 
 <script>
 import { notes } from "../state/store";
+import NoteItem from "./NoteItem.vue";
+const data = Object.values(notes.items);
 
 export default {
   name: "NoteList",
-  props: {
-    notes: [],
-  },
   methods: {},
   Data() {
-    let list = notes;
-    return list;
+    return data;
   },
+  components: { NoteItem },
 };
 </script>
 
