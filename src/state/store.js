@@ -1,7 +1,7 @@
 import { reactive } from "vue";
 
 export const notes = reactive({
-  items: [{ message: "Test 1" }, { message: "Test 2" }],
+  items: ["hi", "hello"],
   add(item) {
     this.items.push(item);
   },

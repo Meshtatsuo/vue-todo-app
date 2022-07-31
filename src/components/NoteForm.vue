@@ -31,8 +31,9 @@ form {
   display: flex;
 }
 input {
+  padding: 0.5em;
   width: 80%;
-  height: 50px;
+  height: 26px;
   font-size: 1.5em;
   background-color: #334;
   border: none #ccdbdc;
@@ -46,5 +47,9 @@ button {
   font-weight: bold;
   font-size: 2em;
   color: #eefdfe;
+}
+
+button:active {
+  background-color: #556;
 }
 </style>

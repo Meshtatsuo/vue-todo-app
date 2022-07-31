@@ -1,10 +1,11 @@
 <template>
   <div id="list">
-    <div v-if="notes">
-      <ul v-for="note in notes?.items" :key="note.message">
-        <li>{{ note.message }}</li>
+    <div v-if="list">
+      <ul v-for="note in list" :key="note">
+        <li>{{ note }}</li>
       </ul>
     </div>
+    <div v-else>No notes</div>
   </div>
 </template>
 
@@ -17,9 +18,9 @@ export default {
     notes: [],
   },
   methods: {},
-  data() {
-    console.log(notes.items[0].message);
-    return notes;
+  Data() {
+    let list = notes;
+    return list;
   },
 };
 </script>
