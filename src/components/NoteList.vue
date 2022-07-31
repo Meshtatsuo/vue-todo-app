@@ -1,27 +1,28 @@
-<template>
-  <div id="list">
-    <div :v-if="data">
-      <ul :v-for="note in data" :key="note">
-        <NoteItem :note="note" />
-      </ul>
-    </div>
-  </div>
-</template>
-
 <script>
 import { notes } from "../state/store";
 import NoteItem from "./NoteItem.vue";
-const data = Object.values(notes.items);
-
 export default {
   name: "NoteList",
-  methods: {},
   Data() {
-    return data;
+    return { notes };
+  },
+  setup() {
+    return { notes };
   },
   components: { NoteItem },
 };
 </script>
+
+<template>
+  <div id="list">
+    <div v-if="notes" :key="notes">
+      <ul v-for="(item, index) in Object.values(notes.items)" :key="index">
+        <NoteItem :note="item" />
+      </ul>
+    </div>
+    <div v-else>No Notes Yet!</div>
+  </div>
+</template>
 
 <style scoped>
 #list {
@@ -30,6 +31,8 @@ export default {
   border-top: solid 2px #eefdfe;
   padding: 1em;
   height: 95vh;
+  margin: 0;
+  padding: 0;
 }
 
 #list li {

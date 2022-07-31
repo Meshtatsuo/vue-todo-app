@@ -6,12 +6,20 @@
 <script>
 import NoteForm from "./components/NoteForm.vue";
 import NoteList from "./components/NoteList.vue";
+import { notes } from "./state/store";
 
 export default {
   name: "App",
   components: {
     NoteForm,
     NoteList,
+  },
+  created() {
+    let items = localStorage.getItem("Notes");
+    items = JSON.parse(items);
+    items.forEach((item) => {
+      notes.add(item);
+    });
   },
 };
 </script>

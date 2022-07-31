@@ -1,7 +1,12 @@
 <template>
   <div>
     <form>
-      <input v-on:input="updateNoteText" type="text" name="note" />
+      <input
+        id="text-input"
+        v-on:input="updateNoteText"
+        type="text"
+        name="note"
+      />
       <button @click.prevent="onSubmit">+</button>
     </form>
   </div>
@@ -17,7 +22,8 @@ export default {
   },
   methods: {
     onSubmit: () => {
-      notes.add({ message: currentNote });
+      notes.add(currentNote);
+      document.querySelector("#text-input").value = "";
     },
     updateNoteText: (e) => {
       currentNote = e.target.value;
