@@ -30,7 +30,7 @@ export default {
   color: #eefdfe;
   border-top: solid 2px #eefdfe;
   padding: 1em;
-  height: 95vh;
+  min-height: 95vh;
   margin: 0;
   padding: 0;
 }
